@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
-using System.Data; // 追加
-using Dapper;      // 追加
+using System.Data;
+using Dapper;
 
 namespace api.Features.Users;
 
