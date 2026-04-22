@@ -23,7 +23,16 @@ builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// SwaggerGenの設定を拡張
+builder.Services.AddSwaggerGen(options =>
+{
+    // 実行中のアセンブリ（プロジェクト）の名前からXMLファイル名を特定する
+    var xmlFilename = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
+    
+    // SwaggerにXMLドキュメントを読み込ませる
+    options.IncludeXmlComments(xmlPath);
+});
 
 var app = builder.Build();
 
