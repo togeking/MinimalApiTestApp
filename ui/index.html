@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todo App - Architect Buddy</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 My Todo App</h1>
+
+        <div class="card">
+            <form id="todo-form">
+                <div class="form-group">
+                    <label for="title">タスク名</label>
+                    <input type="text" id="title" required placeholder="例: 要件定義を終わらせる">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="assigneeId">担当者ID</label>
+                        <input type="number" id="assigneeId" required value="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">ステータス</label>
+                        <select id="status">
+                            <option value="NotStarted">未着手</option>
+                            <option value="InProgress">進行中</option>
+                            <option value="Completed">完了</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="startDate">開始日</label>
+                        <input type="date" id="startDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="endDate">締切日</label>
+                        <input type="date" id="endDate">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">タスクを追加</button>
+            </form>
+        </div>
+
+        <div class="todo-list" id="todo-list">
+            </div>
+    </div>
+
+    <script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>
