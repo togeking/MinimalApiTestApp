@@ -8,8 +8,8 @@ public class TodoItem
     public string Title { get; set; } = string.Empty;
     public int UserId { get; set;}
     public int AssigneeId { get; set; }
-    public DateTime? StartDate { get; set; }
-    public DateTime? EndDate { get; set; }
+    public DateOnly? StartDate { get; set; }
+    public DateOnly? EndDate { get; set; }
     public TodoStatus Status { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }

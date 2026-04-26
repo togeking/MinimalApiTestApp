@@ -1,7 +1,9 @@
 using Microsoft.Data.SqlClient;
 using System.Data;
 using api.Repositories;
+using api.Repositories.Infrastructure;
 using api.Services;
+using Dapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 // appsettings.json (提示された app.json) から ConnectionStrings:DefaultConnection を取得
 // builder.Configuration はデフォルトで appsettings.json を見に行くぜ
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+// DateOnly型のハンドラを登録
+SqlMapper.AddTypeHandler(new DateOnlyTypeHandler());
 
 // IDbConnection の登録
 // SqlConnection を使うために Microsoft.Data.SqlClient の using が必要だ
