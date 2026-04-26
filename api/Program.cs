@@ -21,6 +21,9 @@ builder.Services.AddTransient<IDbConnection>(sp => new SqlConnection(connectionS
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddScoped<ITodoRepository, TodoRepository>();
+builder.Services.AddScoped<ITodoService, TodoService>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 // SwaggerGenの設定を拡張
